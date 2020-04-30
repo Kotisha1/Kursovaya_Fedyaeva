@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url"/>
+    <property name="connection.driver_class"/>
+    <!-- Connection settings -->
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/LabourExchange</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">89081522639</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+
+    <!-- SQL dialect -->
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
+    <property name="show_sql">true</property>
+
+    <!-- Annotated entity classes -->
+    <mapping class="com.clients.model.Client"/>
+    <mapping class="com.organizations.model.Organizations"/>
+    <mapping class="com.posts.model.Post"/>
+    <mapping class="com.contracts.model.Contract"/>
+
+  </session-factory>
+</hibernate-configuration>
