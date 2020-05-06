@@ -32,7 +32,7 @@ public class OrganizationsController {
     public String listOrg(Model model) {
         try {
         model.addAttribute("organization", new Organizations());
-        model.addAttribute("list", this.orgService.listOrg());
+        model.addAttribute("listOrg", this.orgService.listOrg());
         } catch (Exception error){
             return "/error";
         }
@@ -67,7 +67,7 @@ public class OrganizationsController {
     public String editOrg(Model model, @PathVariable("id") int id) {
         try {
         model.addAttribute("organization", this.orgService.getOrgById(id));
-        model.addAttribute("list", this.orgService.listOrg());
+        model.addAttribute("listOrg", this.orgService.listOrg());
         } catch (Exception error){
             return "/error";
         }

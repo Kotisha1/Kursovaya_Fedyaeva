@@ -1,5 +1,6 @@
 package com.clients.model;
 
+import com.contracts.model.Contract;
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.List;

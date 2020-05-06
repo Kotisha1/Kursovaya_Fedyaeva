@@ -3,6 +3,9 @@ package com.posts.post;
 import com.posts.model.Post;
 import com.posts.dao.PostDao;
 import com.posts.service.PostService;
+import com.organizations.model.Organizations;
+import com.organizations.dao.OrgDao;
+import com.organizations.service.OrgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ImportResource;
@@ -19,6 +22,7 @@ import java.util.logging.Logger;
 @Controller("/posts")
 public class PostController {
     private PostService postService;
+    private OrgService orgService;
 
     Logger logger = Logger.getLogger(String.valueOf(PostDao.class));
 
@@ -28,11 +32,19 @@ public class PostController {
         this.postService = postService;
     }
 
+    @Autowired()
+    @Qualifier(value = "orgService")
+    public void setOrgService(OrgService orgService) {
+        this.orgService = orgService;
+    }
+
     @RequestMapping(value ={"/posts"}, method = RequestMethod.GET)
     public String listPosts(Model model) {
         try {
         model.addAttribute("post", new Post());
         model.addAttribute("list", this.postService.listPost());
+        model.addAttribute("org", new Organizations());
+        model.addAttribute("listOrg", this.orgService.listOrg());
         } catch (Exception error){
             return "/error";
         }

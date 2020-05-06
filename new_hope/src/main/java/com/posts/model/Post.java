@@ -1,5 +1,7 @@
 package com.posts.model;
 
+import com.organizations.model.Organizations;
+import com.contracts.model.Contract;
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.List;

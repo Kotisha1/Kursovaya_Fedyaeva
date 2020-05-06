@@ -87,12 +87,16 @@
                 </c:if>
                     <tr>
                         <td>
-                            <form:label path="idOfOrg">
-                                <spring:message text="OrgID"/>
-                            </form:label>
+                        <form:label path="idOfOrg">
+                            <spring:message text="OrgID"/>
+                        </form:label>
                         </td>
                         <td>
-                            <form:input path="idOfOrg" placeholder="14"/>
+                            <form:select path="idOfOrg">
+                                <c:forEach items="${listOrg}" var="org">
+                                     <form:option value="${org.orgId}"/>
+                                </c:forEach>
+                             </form:select>
                         </td>
                     </tr>
                     <tr>

@@ -1,5 +1,7 @@
 package com.contracts.model;
 
+import com.posts.model.Post;
+import com.clients.model.Client;
 import javax.persistence.*;
 import java.util.Objects;
 

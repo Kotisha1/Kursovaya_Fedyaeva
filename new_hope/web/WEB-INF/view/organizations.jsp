@@ -137,7 +137,7 @@
     </td>
     </tr>
 </table>
-<c:if test="${!empty list}">
+<c:if test="${!empty listOrg}">
     <table class="tg">
         <tr>
             <th width="80">IdOrg</th>
@@ -147,7 +147,7 @@
             <th width="80">Edit</th>
             <th width="80">Delete</th>
         </tr>
-        <c:forEach items="${list}" var="organization">
+        <c:forEach items="${listOrg}" var="organization">
             <tr>
                     <td>${organization.orgId}</td>
                     <td>${organization.orgName}</td>
@@ -155,7 +155,6 @@
                     <td>${organization.orgPhone}</td>
                 <td><a href="<c:url value='/editO/${organization.orgId}' />">Edit</a></td>
                 <td><a href="<c:url value='/deleteO/${organization.orgId}' />">Delete</a></td>
-
             </tr>
         </c:forEach>
     </table>

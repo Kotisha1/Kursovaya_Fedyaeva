@@ -1,5 +1,6 @@
 package com.organizations.model;
 
+import com.posts.model.Post;
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.List;
@@ -10,15 +11,15 @@ import java.util.ArrayList;
 @Table(name = "Organizations")
 public class Organizations {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "org_seq")
-    @SequenceGenerator(name = "org_seq", sequenceName = "SEQ_ORG", allocationSize = 15)
-    @Column(name = "idorg", updatable = false, nullable = false)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "org_seq")
+    @SequenceGenerator(name = "org_seq", sequenceName="SEQ_ORG", allocationSize = 15)
+    @Column (name = "idorg", updatable=false, nullable=false)
     private Integer orgId;
-    @Column(name = "nameorg")
+    @Column (name = "nameorg")
     private String orgName;
-    @Column(name = "adress")
+    @Column (name = "adress")
     private String orgAdress;
-    @Column(name = "phone")
+    @Column (name = "phone")
     private String orgPhone;
 
     public Integer getOrgId() {

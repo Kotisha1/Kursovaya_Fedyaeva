@@ -3,6 +3,15 @@ package com.contracts.contract;
 import com.contracts.model.Contract;
 import com.contracts.dao.ContractDao;
 import com.contracts.service.ContractService;
+import com.clients.model.Client;
+import com.clients.dao.ClientDao;
+import com.clients.service.ClientService;
+import com.posts.model.Post;
+import com.posts.dao.PostDao;
+import com.posts.service.PostService;
+import com.organizations.model.Organizations;
+import com.organizations.dao.OrgDao;
+import com.organizations.service.OrgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ImportResource;
@@ -19,6 +28,9 @@ import java.util.logging.Logger;
 @Controller("/contracts")
 public class ContractController {
     private ContractService contractService;
+    private ClientService clientService;
+    private PostService postService;
+    private OrgService orgService;
 
     Logger logger = Logger.getLogger(String.valueOf(ContractDao.class));
 
@@ -28,11 +40,35 @@ public class ContractController {
         this.contractService = ps;
     }
 
+    @Autowired()
+    @Qualifier(value = "orgService")
+    public void setOrgService(OrgService orgService) {
+        this.orgService = orgService;
+    }
+
+    @Autowired()
+    @Qualifier(value = "postService")
+    public void setPostService(PostService postService) {
+        this.postService = postService;
+    }
+
+    @Autowired()
+    @Qualifier(value = "clientService")
+    public void setClientService(ClientService clientService) {
+        this.clientService = clientService;
+    }
+
     @RequestMapping(value ={"/contracts"}, method = RequestMethod.GET)
     public String listContracts(Model model) {
         try {
         model.addAttribute("contract", new Contract());
         model.addAttribute("list", this.contractService.listContract());
+        model.addAttribute("client", new Client());
+        model.addAttribute("listClient", this.clientService.listClient());
+        model.addAttribute("post", new Post());
+        model.addAttribute("listPost", this.postService.listPost());
+        model.addAttribute("org", new Organizations());
+        model.addAttribute("listOrg", this.orgService.listOrg());
         } catch (Exception error){
             return "/error";
         }

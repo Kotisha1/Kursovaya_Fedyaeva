@@ -11,7 +11,12 @@
     <title>LabourExchange</title>
   </head>
   <body>
-  <h1>Hello</h1>
+  <h1>   Hello</h1>
+
+  <hr>
+        <p>We glad to see you in our aplication of Labour Exchange!</p>
+        <p>Please choose needed list.</p>
+  <hr>
 
 
   <h3><a href="http://localhost:8080/clients">Client List</a></h3>
@@ -24,5 +29,6 @@
 
 
   <h3><a href="http://localhost:8080/contracts">Contract List</a></h3>
+
   </body>
 </html>

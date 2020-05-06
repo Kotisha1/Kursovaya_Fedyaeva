@@ -22,11 +22,6 @@ public class OrgService {
         return this.orgDAO.listOrg();
     }
 
-   /*! @Transactional
-    public List<Organizations> listOrgPost() {
-        return this.orgDAO.listOrgPost();
-    } */
-
     @Transactional
     public void addOrg(Organizations org) { this.orgDAO.addOrg(org);}
 

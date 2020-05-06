@@ -92,8 +92,12 @@
                          </form:label>
                         </td>
                         <td>
-                            <form:input path="organizationName" required = "true" placeholder="Organization name"/>
-                        </td>
+                            <form:select path="organizationName">
+                                <c:forEach items="${listOrg}" var="org">
+                                     <form:option value="${org.orgName}"/>
+                                </c:forEach>
+                            </form:select>
+                         </td>
                     </tr>
                     <tr>
                         <td>
@@ -102,7 +106,11 @@
                             </form:label>
                         </td>
                         <td>
-                            <form:input path="idOfClient" required = "true" placeholder="1510" pattern="^[ 0-9]+$"/>
+                            <form:select path="idOfClient">
+                                <c:forEach items="${listClient}" var="client">
+                                    <form:option value="${client.clientId}"/>
+                                 </c:forEach>
+                              </form:select>
                         </td>
                     </tr>
 
@@ -113,7 +121,11 @@
                             </form:label>
                         </td>
                         <td>
-                            <form:input path="idOfPost" required = "true" placeholder="100" type="number"/>
+                            <form:select path="idOfPost">
+                                <c:forEach items="${listPost}" var="post">
+                                    <form:option value="${post.idOfPos}"/>
+                                </c:forEach>
+                             </form:select>
                         </td>
                     </tr>
                     <tr>
